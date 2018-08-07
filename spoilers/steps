@@ -1,0 +1,6 @@
+1. Decrypt the codex
+   - Run codex.umz on the machine and pipe stdout to a file
+   - Dump the codex, and trim the file of the log messages
+   - run the file.
+
+2. Login and explore UMIX
