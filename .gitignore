@@ -1,0 +1,4 @@
+*.pyc
+interp-c
+trace
+logfile
