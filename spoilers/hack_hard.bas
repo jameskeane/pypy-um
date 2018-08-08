@@ -102,7 +102,7 @@ DV       IF CHECKPASS(username, words(i) + j) THEN GOTO DXXX
 DX       j = j + I
 DXV      IF j < 99 THEN GOTO DV
 DXX      i = i + I
-DXXV     IF i > pwdcount then GOTO DXLV
+DXXV     IF i < pwdcount then GOTO D
 DXXX     PRINT "found match!! for user " + username + CHR(X)
 DXXXV    PRINT "password: " + words(i) + j + CHR(X)
 DXL      END
