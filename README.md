@@ -1,8 +1,19 @@
+pypy-um
+---
+A [Universal Machine](http://www.boundvariable.org/) in pypy.
 
-
-Decryption key: (\b.bb)(\v.vv)06FHPVboundvarHRAk
-PYPYLOG=jit-log-opt:logfile ./interp-c spec/um_sandmark
+*NOTE*: The `spoilers` branch ... contains spoilers.
 
 Building
 ---
-python ../pypy/rpython/bin/rpython --opt=jit interp.py
+Note: pypy is optional, but *highly* recommended.
+```
+python pypy/rpython/bin/rpython --opt=jit interp.py
+```
+
+Usage
+---
+```
+./interp-c <um application>
+```
+

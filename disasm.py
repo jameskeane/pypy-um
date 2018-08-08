@@ -1,5 +1,3 @@
-
-
 inst_map = [
  'cmovnz', 'loada', 'seta', 'add', 'mul',
  'div', 'nand', 'hlt', 'alloc', 'free',
@@ -34,7 +32,6 @@ def mnemonize(bc):
     return "call [r%s * r%s]" % (B, C)
   else:
     return "%s r%s, r%s, r%s" % (mne, A, B, C)
-
 
 if __name__ == "__main__":
   import sys

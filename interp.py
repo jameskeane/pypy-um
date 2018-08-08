@@ -1,43 +1,18 @@
 from disasm import disasm, mnemonize
 import os, sys
 
-# So that you can still run this module under standard CPython, I add this
-# import guard that creates a dummy class instead.
+# So that you can still run this module under standard CPython
 try:
     from rpython.rlib.jit import JitDriver, hint
 except ImportError:
-    from termios import tcgetattr, tcsetattr, TCSADRAIN 
     class JitDriver(object):
         def __init__(self,**kw): pass
         def jit_merge_point(self,**kw): pass
         def can_enter_jit(self,**kw): pass
 
-# from readchar import readchar
-
 
 def get_location(pc, mem):
     return mnemonize(mem[0][pc])
-
-
-# class Platter(object):
-#     _virtualizable_ = ['mem[*]']
-
-#     def __init__(self, init, size=0):
-#         self = hint(self, access_directly=True, fresh_virtualizable=True)
-
-#         if init is None:
-#             self.mem = [0] * size
-#         else:
-#             self.mem = init[:]
-
-#     def get(self, i):
-#         return self.mem[i]
-
-#     def set(self, i, v):
-#         self.mem[i] = v
-
-#     def clone(self):
-#         return Platter(self.mem)
 
 
 jitdriver = JitDriver(greens=['pc', 'mem'], reds=['r'],
@@ -93,10 +68,10 @@ def interp(prog):
     else:
       print 'bad opcode %s' % inst
 
-    sys.stderr.write(mnemonize(mem[0][pc]))
-    sys.stderr.write('\n')
+    # Can use this for debugging, i.e. `interp.py ... 2> trace`
+    # sys.stderr.write(mnemonize(mem[0][pc]))
+    # sys.stderr.write('\n')
     pc += 1
-
 
 
 def entry_point(argv):
